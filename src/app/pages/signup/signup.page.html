@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+ 
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-avatar >
+        <img src="\assets\login.png">
+        
+      </ion-avatar>
+      
+  <form [formGroup]="crimeForm">
+      <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input  formControlName="name"></ion-input>
+        </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input formControlName="phone"></ion-input>
+      </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input type="password" formControlName="confirmPassword"></ion-input>
+    </ion-item>
+  
+    
+  </form>
+  
+  <ion-button shape="round" expand="full" color="success" (click)="signup()"
+  >Register</ion-button>
+  <div class="space">
+  <ion-nav-link color="primary" herf="#login" [routerLink]="['/login']">
+Already have an account?
+</ion-nav-link>
+</div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+   
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+      <ion-avatar >
+          <img src="\assets\login.png">
+          
+        </ion-avatar>
+        
+    <form #form="ngForm" >
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input ngModel type="email" name="email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input ngModel type="password" name="password"></ion-input>
+      </ion-item>
+    
+      <p text-right>Forgot Password?</p>
+    
+      <ion-button shape ="round" type="submit" expand="full" color="primary">Login</ion-button>
+      
+    </form>
+    <p class="link" text-center [routerLink]="['/signup']" color="Danger">Don't have a account?</p>
+  </ion-content>
