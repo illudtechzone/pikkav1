@@ -1,5 +1,7 @@
 {
   "name": "pikka",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,10 +1,10 @@
 <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
+      <ion-buttons slot="end">
+        <ion-back-button color="primary"></ion-back-button>
       </ion-buttons>
       <ion-title>
-        Available Riksha
+Finding Ride
       </ion-title>
     </ion-toolbar>
   
@@ -12,21 +12,33 @@
 
 <ion-content>
   <ion-card>
+      <ion-item>
+          <ion-text class="statusTextStyle">Plase wait finding your ride</ion-text>
+          <ion-spinner slot="end" name="circles" color="primary"></ion-spinner>
+      </ion-item>
+
+  </ion-card>
+  <!-- <ion-card>
     <ion-item lines="full">
         <ion-avatar slot="start">
-          <img src="/assets/icon/pro.png">
+          <img src="/assets/icon/person.png">
         </ion-avatar>
         <ion-label>manu</ion-label>
       </ion-item>
-      <!-- <ion-item>
-          <ion-button expand="full">request</ion-button>
-      </ion-item> -->
+    
       <ion-item>
-          <ion-card-subtitle>Waiting response</ion-card-subtitle>
+          <ion-card-subtitle>Sending resquest</ion-card-subtitle>
           <ion-spinner slot="end" name="dots" color="primary"></ion-spinner>
       </ion-item>
         
-    </ion-card>
+    </ion-card> -->
+
+<ion-card>
+<ion-img src="/assets/icon/lens.png"></ion-img>
+</ion-card>
     
 
 </ion-content>
+<ion-footer>
+  <ion-button expand="block">cancel</ion-button>
+</ion-footer>

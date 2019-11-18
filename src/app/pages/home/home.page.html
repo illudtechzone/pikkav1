@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="primary"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       Home
@@ -14,14 +14,22 @@
 
 
 <ion-content>
-  <div>
-      <ion-searchbar placeholder="Pickup location"></ion-searchbar>
- 
-      <ion-searchbar placeholder="Drop location"></ion-searchbar>
-  </div>
+<div>
+  <ion-searchbar [(ngModel)]="fromAddress" (ionChange)="updateSearchResults('from')" placeholder="from" debounce="1000"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="toAddress" (ionChange)="updateSearchResults('to')" placeholder="to" debounce="1000"></ion-searchbar>
+</div>
   
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-card *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+      <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon> 
+          <ion-text>{{item.description}}</ion-text>
+         </ion-item>
+    </ion-card>
+  </ion-list>
+
     
 </ion-content>
 <ion-footer>
-  <ion-button expand="block"  [routerLink]="['/vehicles-list']">next</ion-button>
+  <ion-button expand="block"  [routerLink]="['/vehicles-list']">Request ride</ion-button>
 </ion-footer>
