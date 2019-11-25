@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/security/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -9,10 +10,25 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
+    canActivate: [AuthGuardService]
   },
-  { path: 'vehicles-list', loadChildren: './pages/vehicles-list/vehicles-list.module#VehiclesListPageModule' },
-  { path: 'driver-details', loadChildren: './pages/driver-details/driver-details.module#DriverDetailsPageModule' }
+  { path: 'vehicles-list',
+   loadChildren: () => import('./pages/vehicles-list/vehicles-list.module').then (m => m.VehiclesListPageModule),
+  canActivate: [AuthGuardService] },
+  { path: 'driver-details',
+   loadChildren: () => import('./pages/driver-details/driver-details.module').then(m => m.DriverDetailsPageModule),
+  canActivate: [AuthGuardService] },
+  { path: 'login',
+   loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  { path: 'signup',
+  loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule)
+},
+  { path: 'profile',
+   loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule),
+  canActivate: [AuthGuardService] }
+
 ];
 
 @NgModule({

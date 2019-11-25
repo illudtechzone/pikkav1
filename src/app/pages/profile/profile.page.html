@@ -1,6 +1,29 @@
   <ion-header>
     <ion-toolbar>
-      <ion-title>Header</ion-title>
+      <ion-buttons *ngIf="readonly" slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+          
+  <ion-buttons class="closebutton" *ngIf="!readonly" slot="start"  color="primary" (click)="edit()">
+      <ion-button  >
+        <ion-icon  name="close-circle-outline" color="danger" slot="icon-only"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+          <ion-title style="text-align: center;">Profile</ion-title>
+      
+      <ion-buttons  class="editbutton" *ngIf="readonly" slot="end"  color="primary" (click)="edit()">
+        <ion-button >
+            <ion-icon  class="edit" name="create" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-buttons *ngIf="!readonly"  class="editbutton" slot="end"  color="primary">
+        <ion-button  (click)="confirmation()" >
+          <ion-icon name="checkmark-circle" color="success" slot="icon-only"></ion-icon>
+        </ion-button>
+  </ion-buttons>
+
+
     </ion-toolbar>
   </ion-header>
 
@@ -11,8 +34,12 @@
           <ion-col>
             <div class="image" color="light">
               <ion-avatar >
-                  <img src="\assets\download.jfif">
-                  
+                <ion-img *ngIf="image"  class="image hide-overflow"
+                [src]="'data:' + imageContent + ';base64,' + image">
+              </ion-img>
+              <ion-img *ngIf="!image" class="image hide-overflow"
+                src="assets/placeholder.png">
+              </ion-img>
                 </ion-avatar>
                 
                 <div class="items">
@@ -21,7 +48,9 @@
                     <ion-icon name="camera" color="primary"></ion-icon>
                   </ion-fab-button>
                   <ion-fab-list side="start">
-                      <ion-fab-button><ion-icon name="images"></ion-icon></ion-fab-button>
+                      <ion-fab-button (click)="uploadImage()"
+                      
+                      ><ion-icon name="images" ></ion-icon></ion-fab-button>
                     </ion-fab-list>
                     <ion-fab-list side="end">
                         <ion-fab-button><ion-icon name="camera"></ion-icon></ion-fab-button>
@@ -29,20 +58,25 @@
                     </ion-fab>
               </div>
               </div>
-
-                <ion-item>
-               
-                    <ion-text >Name :
-                    </ion-text>
+              <div class="content">
+                <ion-item >
+                    <ion-label >Name :
+                    </ion-label>
+                    <ion-input s [disabled]="readonly"  [(ngModel)]="user.name" ></ion-input>
                   </ion-item>
-                    <ion-item>
-                    <ion-text>Email :
-                      </ion-text>
+
+                    <ion-item >
+                    <ion-label>Email : 
+                      </ion-label>
+                      <ion-input  [disabled]="readonly"  [(ngModel)]="user.email"></ion-input>
                     </ion-item>
+                    
                     <ion-item>
-                      <ion-text>Number :
-                        </ion-text>
+                      <ion-label>Number :
+                        </ion-label>
+                        <ion-input  [disabled]="readonly"  [(ngModel)]="user.number"></ion-input>
                       </ion-item>
+                    </div>
                   
                 
           </ion-col>

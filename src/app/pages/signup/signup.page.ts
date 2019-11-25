@@ -1,8 +1,8 @@
-import { UtilService } from './../services/util.service';
 import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { KeycloakService } from '../services/KeycloakService';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UtilService } from 'src/app/services/util.service';
+import { KeycloakService } from 'src/app/services/KeycloakService';
 
 @Component({
   selector: 'app-signup',
@@ -45,7 +45,7 @@ export class SignupPage implements OnInit {
 
     const formValue = this.crimeForm.value;
     if (!this.crimeForm.invalid) {
-      console.log('asd');
+
       if (true) {
           console.log('asd');
           this.util.createLoader().then(loader => {
@@ -56,6 +56,8 @@ export class SignupPage implements OnInit {
             };
             this.keycloakService.createAccount(user, formValue.password,
               (res) => {
+                this.util.createToast('Registration Successfully Done !');
+                this.navcontrol.navigateForward('/login');
                 loader.dismiss();
               },
               (err) => {

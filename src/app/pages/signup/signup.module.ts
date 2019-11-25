@@ -1,4 +1,3 @@
-import { UtilService } from './../services/util.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +23,5 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   declarations: [SignupPage],
-  providers: [UtilService]
 })
 export class SignupPageModule {}
