@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header >
     <ion-toolbar>
       <ion-buttons slot="end">
         <ion-button>
@@ -14,7 +14,7 @@
 
 <ion-content>
 
-            <div class="image" color="light">
+            <div class="image" color="light" text-center>
               <ion-avatar >
                   <img src="/assets/icon/pro.png">
                   
@@ -24,16 +24,25 @@
              
               </div>
 
-                <ion-item lines="full">
-               
-                    <ion-text style="margin: 16px;">Manu kg
-                    </ion-text>
-                  </ion-item>
-                  <ion-item lines="full">
+               <div  text-center>
+                    <ion-card-title>Manu kg
+                    </ion-card-title>
+                  </div>
                       <app-rating></app-rating>
-
-                  </ion-item>
+                      <ion-item>
+                          <ion-label position="stacked">message</ion-label>
+                          <ion-textarea
+                            disabled
+                            readonly
+                            value="i am reach there in 5 minit">
+                          </ion-textarea>
+                        </ion-item>
                     <!--driver part end -->
                   <app-invoice></app-invoice>
-              
+                  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                    <ion-fab-button color="success">
+                      <ion-icon name="call"></ion-icon>
+                    </ion-fab-button>
+                  </ion-fab>
 </ion-content>
+
