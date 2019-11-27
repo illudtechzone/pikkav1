@@ -1,3 +1,4 @@
+import { Camera } from '@ionic-native/camera/ngx';
 
 import { ComponentsModule } from './components/components.module';
 import { ConfigsModule } from './config/configs.module';
@@ -46,6 +47,7 @@ import { AuthGuardConfig } from './config/auth.guard.config';
     StatusBar,
     Geolocation,
     SplashScreen,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     OAuthService,
     {

@@ -53,7 +53,9 @@
                       ><ion-icon name="images" ></ion-icon></ion-fab-button>
                     </ion-fab-list>
                     <ion-fab-list side="end">
-                        <ion-fab-button><ion-icon name="camera"></ion-icon></ion-fab-button>
+                        <ion-fab-button (click)="takePicture()">
+                          <ion-icon name="camera"></ion-icon>
+                        </ion-fab-button>
                       </ion-fab-list>
                     </ion-fab>
               </div>
@@ -62,7 +64,7 @@
                 <ion-item >
                     <ion-label >Name :
                     </ion-label>
-                    <ion-input s [disabled]="readonly"  [(ngModel)]="user.name" ></ion-input>
+                    <ion-input  [disabled]="readonly"  [(ngModel)]="user.name" ></ion-input>
                   </ion-item>
 
                     <ion-item >

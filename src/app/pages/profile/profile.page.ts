@@ -1,3 +1,4 @@
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { KeycloakService } from './../../services/KeycloakService';
 import { EditProfileComponent } from './../../components/edit-profile/edit-profile.component';
 import { ModalController, NavController, AlertController } from '@ionic/angular';
@@ -51,7 +52,8 @@ export class ProfilePage implements OnInit {
               private modalController: ModalController,
               private navController: NavController,
               private alertController: AlertController,
-              private keyCloackService: KeycloakService
+              private keyCloackService: KeycloakService,
+              private camera: Camera
               ) { }
 
   ngOnInit() {
@@ -116,5 +118,21 @@ export class ProfilePage implements OnInit {
    });
    return await modal.present();
  }
+
+ takePicture() {
+  const options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  };
+
+  this.camera.getPicture(options).then((imageData) => {
+    this.image = 'data:image/jpeg;base64,' + imageData;
+  }, (err) => {
+    // Handle error
+    console.log('Camera issue:' + err);
+  });
+}
 
 }
